@@ -3,7 +3,7 @@ spring:
     name: order-service
   datasource:
     url: jdbc:postgresql://localhost:5432/order
-    username: "{cipher}AQAVVhcXb/j578bSBw/mmtdNur7q40aviwiI/fKK2hnMrCg1abr6di9J7CIEIoLFzN+om1D2giX3dGWN+4OiZecdWQGKMUPv8qVuUnLh6ade2qQhVydvK1yOosTXgrHBVItgUEGXzKeJwEcYCjbWh0t1MgxHWTnmJjef14N1ZLZEDJj3OjekyeDIEVY4oRGV4qUYQQnQgkoprrHnF9bR1yGj+LpUCBLMmiAyInpNZ2UIXXbp9NIH78E6k83gytisW0Zn/hTFJrSJhwkPgN6Ba8UwuG60IJjZEoWtDP70Axnhx+iEmNZyfs2ShlYS/JfoU0LiSDH8zO3bVFzzK6I3FvgbgUtBUpuAIoNZubKux+Uwdec2wbBI0Bs++F9/JOPdi84="
+    username: ajaypal
     password: ajaypal
   jpa:
     show-sql: true
@@ -12,8 +12,23 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  config:
+    import: optional:configserver:http://localhost:8888
+
 server:
   port: 8083
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 app:
   version: Native dev production 1.0.0
