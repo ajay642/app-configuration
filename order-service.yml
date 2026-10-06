@@ -16,4 +16,4 @@ server:
   port: 8083
 
 app:
-  version: 0.0.5
+  version: Native dev production 0.0.5
